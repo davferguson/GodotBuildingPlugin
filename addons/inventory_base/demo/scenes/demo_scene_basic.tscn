@@ -1,0 +1,50 @@
+[gd_scene load_steps=6 format=3 uid="uid://55tnlvrjoajt"]
+
+[ext_resource type="Script" path="res://addons/inventory_base/scripts/inventory_manager.gd" id="1_e43ml"]
+[ext_resource type="PackedScene" uid="uid://b1t5moouxpyp" path="res://addons/inventory_base/demo/scenes/chest_demo.tscn" id="1_whb4c"]
+[ext_resource type="PackedScene" uid="uid://c24wye4rwbew4" path="res://addons/inventory_base/demo/scenes/player_inventory_container.tscn" id="2_wh86g"]
+[ext_resource type="PackedScene" uid="uid://cobl4i6qbwkqe" path="res://addons/inventory_base/demo/scenes/hand_slot_demo.tscn" id="3_jy77v"]
+[ext_resource type="Resource" uid="uid://b236h8mmkyu8w" path="res://addons/inventory_base/demo/data/inventories/player_inventory.tres" id="5_ckc83"]
+
+[node name="DemoSceneBasic" type="Node"]
+
+[node name="World" type="Node2D" parent="."]
+
+[node name="ChestDemo" parent="World" instance=ExtResource("1_whb4c")]
+position = Vector2(290, 481)
+
+[node name="GUI" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+
+[node name="InventoryManager" type="Control" parent="GUI" node_paths=PackedStringArray("player_inventory_slot", "accessed_inventory_slot")]
+anchors_preset = 0
+script = ExtResource("1_e43ml")
+player_inventory_slot = NodePath("VBoxContainer/PlayerInvSlot")
+accessed_inventory_slot = NodePath("VBoxContainer/AccessedInvSlot")
+player_inventory_scene = ExtResource("2_wh86g")
+hand_slot_scene = ExtResource("3_jy77v")
+player_inventory_resource = ExtResource("5_ckc83")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="GUI/InventoryManager"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="AccessedInvSlot" type="Control" parent="GUI/InventoryManager/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+mouse_filter = 1
+
+[node name="PlayerInvSlot" type="Control" parent="GUI/InventoryManager/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+mouse_filter = 1

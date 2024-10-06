@@ -1,0 +1,32 @@
+[gd_scene load_steps=7 format=3 uid="uid://b1t5moouxpyp"]
+
+[ext_resource type="Texture2D" uid="uid://b3d3210mohidm" path="res://addons/inventory_base/demo/assets/Chest_Spritesheet.png" id="1_vtmpi"]
+[ext_resource type="Script" path="res://addons/inventory_base/scripts/inventory_component.gd" id="2_7kd3r"]
+[ext_resource type="PackedScene" uid="uid://dhlxvteasm46s" path="res://addons/inventory_base/demo/scenes/inventory_container_template.tscn" id="3_cw2d1"]
+[ext_resource type="Resource" uid="uid://df4xpvbs0mgjq" path="res://addons/inventory_base/demo/data/inventories/test_inventory_1.tres" id="3_pvtgn"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gv25q"]
+atlas = ExtResource("1_vtmpi")
+region = Rect2(96, 128, 32, 32)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_snqhj"]
+size = Vector2(28, 27)
+
+[node name="ChestDemo" type="Node2D"]
+scale = Vector2(2, 2)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = SubResource("AtlasTexture_gv25q")
+
+[node name="InventoryComponent2D" type="Node" parent="." node_paths=PackedStringArray("interact_area")]
+script = ExtResource("2_7kd3r")
+interact_area = NodePath("../Area2D")
+inventory_template = ExtResource("3_cw2d1")
+inventory = ExtResource("3_pvtgn")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, 2.5)
+shape = SubResource("RectangleShape2D_snqhj")

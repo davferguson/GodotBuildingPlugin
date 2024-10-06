@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="Inventory" load_steps=3 format=3 uid="uid://deerl2y10v4un"]
+
+[ext_resource type="Script" path="res://addons/inventory_base/scripts/inventory_slot_data.gd" id="1_b51sa"]
+[ext_resource type="Script" path="res://addons/inventory_base/scripts/inventory.gd" id="2_8gc4i"]
+
+[resource]
+script = ExtResource("2_8gc4i")
+items = Array[ExtResource("1_b51sa")]([null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null])

@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="PlaceableInventoryItem" load_steps=4 format=3 uid="uid://dgxb1hwyfwi2w"]
+
+[ext_resource type="Texture2D" uid="uid://ptrjqi8bjxlx" path="res://addons/building_plugin/demo/assets/Hunter Fantasy RPG FREE/House/House Exterior/Closed_Door.png" id="1_3yej1"]
+[ext_resource type="Script" path="res://addons/building_plugin/scripts/placeable_inventory_item.gd" id="2_t6ik2"]
+[ext_resource type="PackedScene" uid="uid://bs7dbsdstotdd" path="res://addons/building_plugin/demo/scenes/red_house_object.tscn" id="2_trb8t"]
+
+[resource]
+script = ExtResource("2_t6ik2")
+placeable_object_scene = ExtResource("2_trb8t")
+name = "Red House"
+icon = ExtResource("1_3yej1")
+max_stack = 10

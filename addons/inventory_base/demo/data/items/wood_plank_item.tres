@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="InventoryItem" load_steps=3 format=3 uid="uid://dyc4fdurh70t8"]
+
+[ext_resource type="Texture2D" uid="uid://bqenqy0rgfaq" path="res://addons/inventory_base/demo/assets/Wooden Plank.png" id="1_05mn1"]
+[ext_resource type="Script" path="res://addons/inventory_base/scripts/inventory_item.gd" id="1_trn6f"]
+
+[resource]
+script = ExtResource("1_trn6f")
+name = "Wood Plank"
+icon = ExtResource("1_05mn1")
+max_stack = 10

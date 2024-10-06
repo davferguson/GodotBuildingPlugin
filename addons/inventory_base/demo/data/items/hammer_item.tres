@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="InventoryItem" load_steps=3 format=3 uid="uid://b0fafowpavp5"]
+
+[ext_resource type="Texture2D" uid="uid://cqx4qpnountev" path="res://addons/inventory_base/demo/assets/Hammer.png" id="1_c4ysw"]
+[ext_resource type="Script" path="res://addons/inventory_base/scripts/inventory_item.gd" id="1_ux5mn"]
+
+[resource]
+script = ExtResource("1_ux5mn")
+name = "Hammer"
+icon = ExtResource("1_c4ysw")
+max_stack = 1

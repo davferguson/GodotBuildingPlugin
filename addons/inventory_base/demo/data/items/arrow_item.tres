@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="InventoryItem" load_steps=3 format=3 uid="uid://b3ktfghwu3it8"]
+
+[ext_resource type="Texture2D" uid="uid://b6f8f63rlrbhe" path="res://addons/inventory_base/demo/assets/Arrow.png" id="1_k8n03"]
+[ext_resource type="Script" path="res://addons/inventory_base/scripts/inventory_item.gd" id="1_w57lr"]
+
+[resource]
+script = ExtResource("1_w57lr")
+name = "Arrow"
+icon = ExtResource("1_k8n03")
+max_stack = 32

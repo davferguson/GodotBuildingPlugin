@@ -1,0 +1,57 @@
+[gd_resource type="Resource" script_class="Inventory" load_steps=16 format=3 uid="uid://df4xpvbs0mgjq"]
+
+[ext_resource type="Script" path="res://addons/inventory_base/scripts/inventory_slot_data.gd" id="1_fjofd"]
+[ext_resource type="Resource" uid="uid://c0w7gdfbb5u73" path="res://addons/inventory_base/demo/data/items/bow_item.tres" id="2_5a2ia"]
+[ext_resource type="Script" path="res://addons/inventory_base/scripts/inventory.gd" id="2_w3yt2"]
+[ext_resource type="Resource" uid="uid://cdqiq2230mgp7" path="res://addons/inventory_base/demo/data/items/leather_item.tres" id="3_thpxp"]
+[ext_resource type="Resource" uid="uid://djb7xpk38wopc" path="res://addons/inventory_base/demo/data/items/rope_item.tres" id="4_nn36y"]
+[ext_resource type="Resource" uid="uid://vuprqrnc2h3c" path="res://addons/inventory_base/demo/data/items/diamond_item.tres" id="5_f3dmu"]
+
+[sub_resource type="Resource" id="Resource_5cdox"]
+script = ExtResource("1_fjofd")
+item = ExtResource("2_5a2ia")
+amount = 1
+
+[sub_resource type="Resource" id="Resource_gdyrc"]
+script = ExtResource("1_fjofd")
+item = ExtResource("3_thpxp")
+amount = 14
+
+[sub_resource type="Resource" id="Resource_xfuex"]
+script = ExtResource("1_fjofd")
+item = ExtResource("3_thpxp")
+amount = 14
+
+[sub_resource type="Resource" id="Resource_rubt1"]
+script = ExtResource("1_fjofd")
+item = ExtResource("3_thpxp")
+amount = 14
+
+[sub_resource type="Resource" id="Resource_awt0i"]
+script = ExtResource("1_fjofd")
+item = ExtResource("3_thpxp")
+amount = 14
+
+[sub_resource type="Resource" id="Resource_tp5ps"]
+script = ExtResource("1_fjofd")
+item = ExtResource("4_nn36y")
+amount = 17
+
+[sub_resource type="Resource" id="Resource_tyhr2"]
+script = ExtResource("1_fjofd")
+item = ExtResource("5_f3dmu")
+amount = 1
+
+[sub_resource type="Resource" id="Resource_tqj2x"]
+script = ExtResource("1_fjofd")
+item = ExtResource("5_f3dmu")
+amount = 1
+
+[sub_resource type="Resource" id="Resource_8thby"]
+script = ExtResource("1_fjofd")
+item = ExtResource("5_f3dmu")
+amount = 1
+
+[resource]
+script = ExtResource("2_w3yt2")
+items = Array[ExtResource("1_fjofd")]([SubResource("Resource_5cdox"), SubResource("Resource_gdyrc"), SubResource("Resource_xfuex"), null, SubResource("Resource_rubt1"), SubResource("Resource_awt0i"), SubResource("Resource_tp5ps"), null, null, SubResource("Resource_tyhr2"), SubResource("Resource_tqj2x"), SubResource("Resource_8thby")])

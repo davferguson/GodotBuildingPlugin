@@ -1,0 +1,70 @@
+[gd_resource type="Resource" script_class="Inventory" load_steps=21 format=3 uid="uid://kvmn6kd77gtj"]
+
+[ext_resource type="Script" path="res://addons/inventory_base/scripts/inventory_slot_data.gd" id="1_vi6ov"]
+[ext_resource type="Resource" uid="uid://b0fafowpavp5" path="res://addons/inventory_base/demo/data/items/hammer_item.tres" id="2_08q4v"]
+[ext_resource type="Resource" uid="uid://dgxb1hwyfwi2w" path="res://addons/building_plugin/demo/data/house_item.tres" id="3_a06tw"]
+[ext_resource type="Resource" uid="uid://djb7xpk38wopc" path="res://addons/inventory_base/demo/data/items/rope_item.tres" id="3_n0ckf"]
+[ext_resource type="Resource" uid="uid://dyc4fdurh70t8" path="res://addons/inventory_base/demo/data/items/wood_plank_item.tres" id="4_kjl8l"]
+[ext_resource type="Resource" uid="uid://b3ktfghwu3it8" path="res://addons/inventory_base/demo/data/items/arrow_item.tres" id="5_u8w46"]
+[ext_resource type="Resource" uid="uid://cs01p02umet5c" path="res://addons/building_plugin/demo/data/well_item.tres" id="6_0oh6w"]
+[ext_resource type="Resource" uid="uid://hnex0b2dp85s" path="res://addons/building_plugin/demo/data/tree_item.tres" id="6_u7y4p"]
+[ext_resource type="Script" path="res://addons/inventory_base/scripts/inventory.gd" id="6_v55r7"]
+
+[sub_resource type="Resource" id="Resource_r0jx6"]
+script = ExtResource("1_vi6ov")
+item = ExtResource("2_08q4v")
+amount = 1
+
+[sub_resource type="Resource" id="Resource_o3jqq"]
+script = ExtResource("1_vi6ov")
+item = ExtResource("3_a06tw")
+amount = 7
+
+[sub_resource type="Resource" id="Resource_4eyog"]
+script = ExtResource("1_vi6ov")
+item = ExtResource("3_n0ckf")
+amount = 7
+
+[sub_resource type="Resource" id="Resource_g0cy6"]
+script = ExtResource("1_vi6ov")
+item = ExtResource("4_kjl8l")
+amount = 7
+
+[sub_resource type="Resource" id="Resource_1gmc8"]
+script = ExtResource("1_vi6ov")
+item = ExtResource("4_kjl8l")
+amount = 4
+
+[sub_resource type="Resource" id="Resource_ncfig"]
+script = ExtResource("1_vi6ov")
+item = ExtResource("6_u7y4p")
+amount = 28
+
+[sub_resource type="Resource" id="Resource_6j00h"]
+script = ExtResource("1_vi6ov")
+item = ExtResource("6_u7y4p")
+amount = 28
+
+[sub_resource type="Resource" id="Resource_g277i"]
+script = ExtResource("1_vi6ov")
+item = ExtResource("6_0oh6w")
+amount = 3
+
+[sub_resource type="Resource" id="Resource_ml0rr"]
+script = ExtResource("1_vi6ov")
+item = ExtResource("6_0oh6w")
+amount = 5
+
+[sub_resource type="Resource" id="Resource_5x2qw"]
+script = ExtResource("1_vi6ov")
+item = ExtResource("5_u8w46")
+amount = 22
+
+[sub_resource type="Resource" id="Resource_0m3n8"]
+script = ExtResource("1_vi6ov")
+item = ExtResource("5_u8w46")
+amount = 30
+
+[resource]
+script = ExtResource("6_v55r7")
+items = Array[ExtResource("1_vi6ov")]([SubResource("Resource_r0jx6"), SubResource("Resource_o3jqq"), null, null, null, null, SubResource("Resource_4eyog"), SubResource("Resource_g0cy6"), SubResource("Resource_1gmc8"), null, null, SubResource("Resource_ncfig"), SubResource("Resource_6j00h"), null, SubResource("Resource_g277i"), SubResource("Resource_ml0rr"), null, null, SubResource("Resource_5x2qw"), SubResource("Resource_0m3n8"), null])

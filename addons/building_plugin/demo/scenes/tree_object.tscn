@@ -1,0 +1,26 @@
+[gd_scene load_steps=5 format=3 uid="uid://cim2dhl6rc8oe"]
+
+[ext_resource type="Script" path="res://addons/building_plugin/scripts/placeable_object.gd" id="1_042so"]
+[ext_resource type="Texture2D" uid="uid://c0y0wn4qbd7ea" path="res://addons/building_plugin/demo/assets/Hunter Fantasy RPG FREE/Outdoor Decoration/Nature.png" id="2_0au4c"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5whid"]
+atlas = ExtResource("2_0au4c")
+region = Rect2(0, 0, 96, 96)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xc27e"]
+size = Vector2(32, 32)
+
+[node name="TreeObject" type="Node2D" node_paths=PackedStringArray("sprite", "build_collision_area")]
+script = ExtResource("1_042so")
+sprite = NodePath("Sprite2D")
+build_collision_area = NodePath("Area2D")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(16, -16)
+texture = SubResource("AtlasTexture_5whid")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(16, 16)
+shape = SubResource("RectangleShape2D_xc27e")

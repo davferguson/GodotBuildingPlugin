@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="PlaceableInventoryItem" load_steps=5 format=3 uid="uid://hnex0b2dp85s"]
+
+[ext_resource type="Script" path="res://addons/building_plugin/scripts/placeable_inventory_item.gd" id="1_0o3yy"]
+[ext_resource type="Texture2D" uid="uid://c0y0wn4qbd7ea" path="res://addons/building_plugin/demo/assets/Hunter Fantasy RPG FREE/Outdoor Decoration/Nature.png" id="1_2sp1g"]
+[ext_resource type="PackedScene" uid="uid://cim2dhl6rc8oe" path="res://addons/building_plugin/demo/scenes/tree_object.tscn" id="2_bwvvg"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cl5i8"]
+atlas = ExtResource("1_2sp1g")
+region = Rect2(16, 0, 64, 96)
+
+[resource]
+script = ExtResource("1_0o3yy")
+placeable_object_scene = ExtResource("2_bwvvg")
+name = "Tree"
+icon = SubResource("AtlasTexture_cl5i8")
+max_stack = 32
