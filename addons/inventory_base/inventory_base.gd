@@ -15,6 +15,7 @@ func _enter_tree():
 	add_custom_type("HandSlot", "Control", preload("res://addons/inventory_base/scripts/hand_slot.gd"), preload("res://addons/inventory_base/icons/inventory_icon.svg"))
 	add_custom_type("InventoryManager", "Control", preload("res://addons/inventory_base/scripts/inventory_manager.gd"), preload("res://addons/inventory_base/icons/inventory_icon.svg"))
 	add_custom_type("InventoryComponent2D", "Node", preload("res://addons/inventory_base/scripts/inventory_component.gd"), preload("res://addons/inventory_base/icons/inventory_icon.svg"))
+	add_custom_type("Hotbar", "Control", preload("res://addons/inventory_base/scripts/hotbar.gd"), preload("res://addons/inventory_base/icons/inventory_icon.svg"))
 	
 	add_custom_inputs()
 
@@ -31,6 +32,7 @@ func _exit_tree():
 	remove_custom_type("HandSlot")
 	remove_custom_type("InventoryManager")
 	remove_custom_type("InventoryComponent2D")
+	remove_custom_type("Hotbar")
 	
 	remove_custom_inputs()
 

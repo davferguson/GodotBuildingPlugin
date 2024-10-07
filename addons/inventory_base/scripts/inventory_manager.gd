@@ -4,11 +4,16 @@ extends Control
 @export_group("Inventory Positioning")
 @export var player_inventory_slot: Control
 @export var accessed_inventory_slot: Control
+@export var hotbar_slot: Control
 @export_group("PackedScenes")
 @export var player_inventory_scene: PackedScene
 @export var hand_slot_scene: PackedScene
+@export var hotbar_scene: PackedScene
 @export_group("Resources")
 @export var player_inventory_resource: Inventory
+@export var hotbar_inventory_resource: Inventory
+@export_group("Key Binds")
+@export var inventory_key_bind: InputEventKey
 
 var accessed_inventory: InventoryContainer
 var hand_slot: HandSlot
@@ -20,18 +25,15 @@ func _init():
 	set_anchors_preset(Control.PRESET_FULL_RECT)
 
 func _ready():
-	hand_slot = hand_slot_scene.instantiate()
-	hand_slot.data = InventoryAutoload.hand_slot
-	add_child(hand_slot)
-	player_inventory = player_inventory_scene.instantiate()
-	player_inventory.inventory = player_inventory_resource
+	set_key_binds()
+	initialize_children()
+	
 	InventoryAutoload.player_inventory = player_inventory
-	player_inventory_slot.add_child(player_inventory)
 	
 	connect_signals()
 
 func _input(event):
-	if event.is_action_pressed("ui_down"):
+	if event.is_action_pressed("inventory"):
 		if is_open:
 			close_inventories()
 		else:
@@ -55,6 +57,26 @@ func close_inventories():
 func connect_signals():
 	InventoryAutoload.hand_slot_changed.connect(_on_hand_slot_changed.bind())
 	InventoryAutoload.accessed_inventory_changed.connect(_on_accessed_inventory_changed.bind())
+
+func set_key_binds():
+	if InputMap.has_action("inventory"):
+		InputMap.action_erase_events("inventory")
+	else:
+		InputMap.add_action("inventory")
+	InputMap.action_add_event("inventory", inventory_key_bind)
+
+func initialize_children():
+	hand_slot = hand_slot_scene.instantiate()
+	hand_slot.data = InventoryAutoload.hand_slot
+	add_child(hand_slot)
+	
+	player_inventory = player_inventory_scene.instantiate()
+	player_inventory.inventory = player_inventory_resource
+	player_inventory_slot.add_child(player_inventory)
+	
+	var hotbar: Hotbar = hotbar_scene.instantiate()
+	hotbar.inventory = hotbar_inventory_resource
+	hotbar_slot.add_child(hotbar)
 
 func _on_hand_slot_changed(data: InventorySlotData):
 	hand_slot.data = data

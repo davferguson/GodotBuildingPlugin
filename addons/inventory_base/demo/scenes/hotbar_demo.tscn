@@ -1,0 +1,49 @@
+[gd_scene load_steps=4 format=3 uid="uid://b8byev2u3dr0q"]
+
+[ext_resource type="Script" path="res://addons/inventory_base/scripts/hotbar.gd" id="1_xef0i"]
+[ext_resource type="PackedScene" uid="uid://5ldybaeu0rrf" path="res://addons/inventory_base/demo/scenes/inventory_slot_template.tscn" id="2_ityhg"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_605ng"]
+bg_color = Color(0.497474, 0.497474, 0.497474, 1)
+border_width_left = 6
+border_width_top = 6
+border_width_right = 6
+border_width_bottom = 6
+border_color = Color(0.183591, 0.18359, 0.18359, 1)
+corner_radius_top_left = 2
+corner_radius_top_right = 2
+corner_radius_bottom_right = 2
+corner_radius_bottom_left = 2
+expand_margin_left = 3.0
+expand_margin_top = 3.0
+expand_margin_right = 3.0
+expand_margin_bottom = 3.0
+
+[node name="HotbarDemo" type="Control" node_paths=PackedStringArray("grid_container")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_xef0i")
+grid_container = NodePath("PanelContainer/GridContainer")
+slot_scene = ExtResource("2_ityhg")
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -12.0
+offset_top = -12.0
+offset_right = 12.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxFlat_605ng")
+
+[node name="GridContainer" type="GridContainer" parent="PanelContainer"]
+layout_mode = 2
+columns = 10

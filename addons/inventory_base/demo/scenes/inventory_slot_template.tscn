@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://addons/inventory_base/scripts/inventory_slot.gd" id="1_qygyl"]
 
 [node name="InventorySlotTemplate" type="Control" node_paths=PackedStringArray("icon_texture", "amount_label")]
-custom_minimum_size = Vector2(64, 64)
+custom_minimum_size = Vector2(58, 58)
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0

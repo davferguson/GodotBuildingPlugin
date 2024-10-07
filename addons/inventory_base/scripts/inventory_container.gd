@@ -11,7 +11,7 @@ extends Control
 			#inventory.changed.disconnect(_on_inventory_changed)
 		
 		inventory = value
-		#_on_inventory_changed()
+		_on_inventory_changed()
 		#if inventory != null:
 			#inventory.changed.connect(_on_inventory_changed)
 		#if not Engine.is_editor_hint():

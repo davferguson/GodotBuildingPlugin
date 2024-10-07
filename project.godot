@@ -16,8 +16,8 @@ config/features=PackedStringArray("4.3", "GL Compatibility")
 
 [autoload]
 
-InventoryAutoload="*res://addons/inventory_base/scripts/inventory_autoload.gd"
 BuildingAutoload="*res://addons/building_plugin/scripts/building_autoload.gd"
+InventoryAutoload="*res://addons/inventory_base/scripts/inventory_autoload.gd"
 
 [editor_plugins]
 
