@@ -44,10 +44,12 @@ func attempt_build():
 
 func place_build():
 	build_preview = null
-	var hand_slot: InventorySlotData = InventoryAutoload.hand_slot
-	hand_slot.amount -= 1
-	if hand_slot.amount <= 0:
-		hand_slot = null
+	var hand_slot: HandSlot = InventoryAutoload.hand_slot
+	var hand_slot_data: InventorySlotData = hand_slot.data
+	hand_slot_data.amount -= 1
+	if hand_slot_data.amount <= 0:
+		hand_slot_data = null
+	hand_slot.data = hand_slot_data
 	InventoryAutoload.hand_slot = hand_slot
 
 func update_build_preview_scene(new_build_scene: PackedScene):
@@ -79,11 +81,11 @@ func find_hovered_cell(tile_layer: TileMapLayer) -> Vector2i:
 	#var new_hovered_cell = object_layer.local_to_map(object_layer.get_local_mouse_position())
 	return tile_layer.local_to_map(tile_layer.get_global_mouse_position())
 
-func _on_hand_slot_changed(data: InventorySlotData):
-	if data == null:
+func _on_hand_slot_changed(hand_slot: HandSlot):
+	if hand_slot.data == null:
 		update_build_preview_scene(null)
 		return
-	if data.item is PlaceableInventoryItem:
-		update_build_preview_scene(data.item.placeable_object_scene)
+	if hand_slot.data.item is PlaceableInventoryItem:
+		update_build_preview_scene(hand_slot.data.item.placeable_object_scene)
 	else:
 		update_build_preview_scene(null)

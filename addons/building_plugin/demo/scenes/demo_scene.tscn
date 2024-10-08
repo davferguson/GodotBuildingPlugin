@@ -77,7 +77,12 @@ offset = Vector2(576, 324)
 
 [node name="InventoryManager" type="Control" parent="UI" node_paths=PackedStringArray("player_inventory_slot", "accessed_inventory_slot", "hotbar_slot")]
 layout_mode = 3
-anchors_preset = 0
+anchors_preset = 13
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 script = ExtResource("6_os2na")
 player_inventory_slot = NodePath("VBoxContainer/PlayerInvSlot")
 accessed_inventory_slot = NodePath("VBoxContainer/AccessedInvSlot")

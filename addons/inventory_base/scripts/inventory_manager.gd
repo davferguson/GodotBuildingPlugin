@@ -22,12 +22,13 @@ var is_open: bool = false
 
 func _init():
 	mouse_filter = MOUSE_FILTER_PASS
-	set_anchors_preset(Control.PRESET_FULL_RECT)
+	#set_anchors_preset(Control.PRESET_FULL_RECT)
 
 func _ready():
 	set_key_binds()
 	initialize_children()
 	
+	InventoryAutoload.hand_slot = hand_slot
 	InventoryAutoload.player_inventory = player_inventory
 	
 	connect_signals()
@@ -55,7 +56,6 @@ func close_inventories():
 	InventoryAutoload.accessed_inventory = null
 
 func connect_signals():
-	InventoryAutoload.hand_slot_changed.connect(_on_hand_slot_changed.bind())
 	InventoryAutoload.accessed_inventory_changed.connect(_on_accessed_inventory_changed.bind())
 
 func set_key_binds():
@@ -67,7 +67,6 @@ func set_key_binds():
 
 func initialize_children():
 	hand_slot = hand_slot_scene.instantiate()
-	hand_slot.data = InventoryAutoload.hand_slot
 	add_child(hand_slot)
 	
 	player_inventory = player_inventory_scene.instantiate()
@@ -77,9 +76,6 @@ func initialize_children():
 	var hotbar: Hotbar = hotbar_scene.instantiate()
 	hotbar.inventory = hotbar_inventory_resource
 	hotbar_slot.add_child(hotbar)
-
-func _on_hand_slot_changed(data: InventorySlotData):
-	hand_slot.data = data
 
 func _on_accessed_inventory_changed(inventory: InventoryContainer):
 	for inv: InventoryContainer in accessed_inventory_slot.get_children():

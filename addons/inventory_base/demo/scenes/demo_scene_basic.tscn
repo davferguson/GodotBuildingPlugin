@@ -20,17 +20,16 @@ unicode = 101
 [node name="ChestDemo" parent="World" instance=ExtResource("1_whb4c")]
 position = Vector2(290, 481)
 
-[node name="GUI" type="Control" parent="."]
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="InventoryManager" type="Control" parent="UI" node_paths=PackedStringArray("player_inventory_slot", "accessed_inventory_slot", "hotbar_slot")]
 layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
+anchors_preset = 13
+anchor_left = 0.5
+anchor_right = 0.5
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-mouse_filter = 1
-
-[node name="InventoryManager" type="Control" parent="GUI" node_paths=PackedStringArray("player_inventory_slot", "accessed_inventory_slot", "hotbar_slot")]
-anchors_preset = 0
 script = ExtResource("1_e43ml")
 player_inventory_slot = NodePath("VBoxContainer/PlayerInvSlot")
 accessed_inventory_slot = NodePath("VBoxContainer/AccessedInvSlot")
@@ -42,27 +41,28 @@ player_inventory_resource = ExtResource("5_ckc83")
 hotbar_inventory_resource = ExtResource("7_ilaek")
 inventory_key_bind = SubResource("InputEventKey_mc2qw")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="GUI/InventoryManager"]
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/InventoryManager"]
 layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
+anchors_preset = 13
+anchor_left = 0.5
+anchor_right = 0.5
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="AccessedInvSlot" type="Control" parent="GUI/InventoryManager/VBoxContainer"]
+[node name="AccessedInvSlot" type="Control" parent="UI/InventoryManager/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 size_flags_stretch_ratio = 4.0
 mouse_filter = 1
 
-[node name="PlayerInvSlot" type="Control" parent="GUI/InventoryManager/VBoxContainer"]
+[node name="PlayerInvSlot" type="Control" parent="UI/InventoryManager/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 size_flags_stretch_ratio = 4.0
 mouse_filter = 1
 
-[node name="HotbarSlot" type="Control" parent="GUI/InventoryManager/VBoxContainer"]
+[node name="HotbarSlot" type="Control" parent="UI/InventoryManager/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 mouse_filter = 1

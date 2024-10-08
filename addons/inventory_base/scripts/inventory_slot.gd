@@ -45,7 +45,8 @@ func update_slot():
 
 func slot_pressed(button_index: int):
 	#print("slot " + str(index) + " pressed.")
-	var hand_data: InventorySlotData = InventoryAutoload.hand_slot
+	var hand_slot: HandSlot = InventoryAutoload.hand_slot
+	var hand_data: InventorySlotData = hand_slot.data
 	match button_index:
 		MOUSE_BUTTON_LEFT:
 			if hand_data == null: ## HAND EMPTY
@@ -101,7 +102,8 @@ func slot_pressed(button_index: int):
 								hand_data = null
 	
 	data = data
-	InventoryAutoload.hand_slot = hand_data
+	hand_slot.data = hand_data
+	InventoryAutoload.hand_slot = hand_slot
 	slot_changed.emit(index, data)
 
 func _gui_input(event: InputEvent):
