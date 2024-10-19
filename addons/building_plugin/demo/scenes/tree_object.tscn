@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://cim2dhl6rc8oe"]
+[gd_scene load_steps=6 format=3 uid="uid://cim2dhl6rc8oe"]
 
 [ext_resource type="Script" path="res://addons/building_plugin/scripts/placeable_object.gd" id="1_042so"]
 [ext_resource type="Texture2D" uid="uid://c0y0wn4qbd7ea" path="res://addons/building_plugin/demo/assets/Hunter Fantasy RPG FREE/Outdoor Decoration/Nature.png" id="2_0au4c"]
+[ext_resource type="Resource" uid="uid://5goeocvd1nfa" path="res://addons/building_plugin/demo/data/tree_item.tres" id="2_kl462"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_5whid"]
 atlas = ExtResource("2_0au4c")
@@ -10,10 +11,12 @@ region = Rect2(0, 0, 96, 96)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xc27e"]
 size = Vector2(32, 32)
 
-[node name="TreeObject" type="Node2D" node_paths=PackedStringArray("sprite", "build_collision_area")]
+[node name="TreeObject" type="Node2D" node_paths=PackedStringArray("sprite", "build_collision_area", "destroy_progess_bar")]
 script = ExtResource("1_042so")
 sprite = NodePath("Sprite2D")
 build_collision_area = NodePath("Area2D")
+destroy_progess_bar = NodePath("ProgressBar")
+item_resource = ExtResource("2_kl462")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(16, -16)
@@ -24,3 +27,10 @@ texture = SubResource("AtlasTexture_5whid")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 position = Vector2(16, 16)
 shape = SubResource("RectangleShape2D_xc27e")
+
+[node name="ProgressBar" type="ProgressBar" parent="."]
+offset_left = -8.0
+offset_top = 32.0
+offset_right = 40.0
+offset_bottom = 38.0
+show_percentage = false

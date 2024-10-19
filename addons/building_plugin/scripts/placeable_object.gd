@@ -3,14 +3,19 @@ extends Node2D
 
 @export var sprite: Sprite2D
 @export var build_collision_area: Area2D
+@export var destroy_progess_bar: ProgressBar
+@export var item_resource: PlaceableInventoryItem
 
 var tile_checker_container: Node2D
 @export var is_placed: bool = false
+var tween: Tween
 
 func _ready():
 	build_collision_area.set_collision_layer_value(BuildingAutoload.building_collision_layer, true)
 	if not is_placed:
 		modulate = Color(1, 1, 1, 0.5)
+	build_collision_area.input_event.connect(_on_input_event.bind())
+	destroy_progess_bar.hide()
 
 func generate_tile_checkers():
 	tile_checker_container = Node2D.new()
@@ -51,3 +56,26 @@ func can_place() -> bool:
 		if not tile_checker.is_open:
 			return false
 	return true
+
+func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int):
+	if event is InputEventMouseButton:
+		if event.button_index == MOUSE_BUTTON_RIGHT:
+			if event.pressed:
+				destroy_progess_bar.show()
+				tween = create_tween()
+				tween.tween_property(destroy_progess_bar, "value", 100, 1)
+				tween.tween_callback(destory_object)
+			else:
+				destroy_progess_bar.hide()
+				tween.kill()
+				destroy_progess_bar.value = 0
+
+func destory_object():
+	var returned_item: InventorySlotData
+	var item_slot_data: InventorySlotData = InventorySlotData.new()
+	item_slot_data.amount = 1
+	item_slot_data.item = item_resource
+	returned_item = InventoryAutoload.player_inventory.inventory.add_item(item_slot_data)
+	if returned_item != null:
+		push_error("missing implementation for full inventory when destroying placeable object.")
+	queue_free()
