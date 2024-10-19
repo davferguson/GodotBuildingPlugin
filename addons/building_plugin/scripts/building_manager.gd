@@ -17,16 +17,17 @@ func _ready():
 	BuildingAutoload.tile_checker_texture = tile_checker_texture
 	BuildingAutoload.building_collision_layer = building_collision_layer
 	connect_signals()
-	update_build_preview_scene(build_object_scene)
+	#update_build_preview_scene(build_object_scene)
 	
 
 func _unhandled_input(event):
-	if event is InputEventMouseMotion:
-		update_build_preview_position()
-	elif event is InputEventMouseButton:
-		if event.pressed:
-			if event.button_index == MOUSE_BUTTON_LEFT:
-				attempt_build()
+	if build_preview != null:
+		if event is InputEventMouseMotion:
+			update_build_preview_position()
+		elif event is InputEventMouseButton:
+			if event.pressed:
+				if event.button_index == MOUSE_BUTTON_LEFT:
+					attempt_build()
 
 func connect_signals():
 	InventoryAutoload.hand_slot_changed.connect(_on_hand_slot_changed.bind())
@@ -52,8 +53,26 @@ func place_build():
 	hand_slot.data = hand_slot_data
 	InventoryAutoload.hand_slot = hand_slot
 
-func update_build_preview_scene(new_build_scene: PackedScene):
-	#print("update build scene: ", new_build_scene)
+#func update_build_preview_scene(new_build_scene: PackedScene):
+	##print("update build scene: ", new_build_scene)
+	#build_object_scene = new_build_scene
+	#if build_preview != null:
+			#object_root.remove_child(build_preview)
+			#build_preview = null
+	#if new_build_scene == null:
+		#return
+	#build_preview = new_build_scene.instantiate()
+	#object_root.add_child(build_preview)
+	#build_preview.generate_tile_checkers()
+	#if build_preview != null:
+		#set_build_preview_position(find_hovered_cell(object_layer))
+
+func update_build_preview_scene(new_build_scene_path: String):
+	var new_build_scene
+	if new_build_scene_path == "":
+		new_build_scene = null
+	else:
+		new_build_scene = load(new_build_scene_path)
 	build_object_scene = new_build_scene
 	if build_preview != null:
 			object_root.remove_child(build_preview)
@@ -83,9 +102,12 @@ func find_hovered_cell(tile_layer: TileMapLayer) -> Vector2i:
 
 func _on_hand_slot_changed(hand_slot: HandSlot):
 	if hand_slot.data == null:
-		update_build_preview_scene(null)
+		#update_build_preview_scene(null)
+		update_build_preview_scene("")
 		return
 	if hand_slot.data.item is PlaceableInventoryItem:
-		update_build_preview_scene(hand_slot.data.item.placeable_object_scene)
+		#update_build_preview_scene(hand_slot.data.item.placeable_object_scene)
+		update_build_preview_scene(hand_slot.data.item.scene_path)
 	else:
-		update_build_preview_scene(null)
+		#update_build_preview_scene(null)
+		update_build_preview_scene("")

@@ -8,7 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://d1mdxq4v1onn" path="res://addons/building_plugin/demo/assets/Hunter Fantasy RPG FREE/Outdoor Decoration/Chest.png" id="6_h7lk7"]
 [ext_resource type="Script" path="res://addons/inventory_base/scripts/inventory_manager.gd" id="6_os2na"]
 [ext_resource type="PackedScene" uid="uid://c24wye4rwbew4" path="res://addons/inventory_base/demo/scenes/player_inventory_container.tscn" id="7_q6sr5"]
-[ext_resource type="PackedScene" uid="uid://cobl4i6qbwkqe" path="res://addons/inventory_base/demo/scenes/hand_slot_demo.tscn" id="8_ecaje"]
+[ext_resource type="PackedScene" uid="uid://b1dkx0psp3qbm" path="res://addons/building_plugin/demo/scenes/hand_slot_build.tscn" id="9_7o1hf"]
 [ext_resource type="PackedScene" uid="uid://b8byev2u3dr0q" path="res://addons/inventory_base/demo/scenes/hotbar_demo.tscn" id="10_08q22"]
 [ext_resource type="Resource" uid="uid://kvmn6kd77gtj" path="res://addons/building_plugin/demo/data/player_inventory_build.tres" id="10_pkuv3"]
 [ext_resource type="Resource" uid="uid://bn0pa1eeuusul" path="res://addons/inventory_base/demo/data/inventories/hotbar_inventory.tres" id="12_7w4bq"]
@@ -88,7 +88,7 @@ player_inventory_slot = NodePath("VBoxContainer/PlayerInvSlot")
 accessed_inventory_slot = NodePath("VBoxContainer/AccessedInvSlot")
 hotbar_slot = NodePath("VBoxContainer/HotbarSlot")
 player_inventory_scene = ExtResource("7_q6sr5")
-hand_slot_scene = ExtResource("8_ecaje")
+hand_slot_scene = ExtResource("9_7o1hf")
 hotbar_scene = ExtResource("10_08q22")
 player_inventory_resource = ExtResource("10_pkuv3")
 hotbar_inventory_resource = ExtResource("12_7w4bq")

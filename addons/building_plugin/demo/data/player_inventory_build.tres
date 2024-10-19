@@ -7,7 +7,7 @@
 [ext_resource type="Resource" uid="uid://dyc4fdurh70t8" path="res://addons/inventory_base/demo/data/items/wood_plank_item.tres" id="4_kjl8l"]
 [ext_resource type="Resource" uid="uid://b3ktfghwu3it8" path="res://addons/inventory_base/demo/data/items/arrow_item.tres" id="5_u8w46"]
 [ext_resource type="Resource" uid="uid://cs01p02umet5c" path="res://addons/building_plugin/demo/data/well_item.tres" id="6_0oh6w"]
-[ext_resource type="Resource" uid="uid://hnex0b2dp85s" path="res://addons/building_plugin/demo/data/tree_item.tres" id="6_u7y4p"]
+[ext_resource type="Resource" uid="uid://5goeocvd1nfa" path="res://addons/building_plugin/demo/data/tree_item.tres" id="6_u7y4p"]
 [ext_resource type="Script" path="res://addons/inventory_base/scripts/inventory.gd" id="6_v55r7"]
 
 [sub_resource type="Resource" id="Resource_r0jx6"]
